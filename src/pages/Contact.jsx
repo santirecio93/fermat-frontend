@@ -7,6 +7,8 @@ function Contact() {
     mensaje: "",
   });
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -18,7 +20,7 @@ function Contact() {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch(`${API_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,7 +38,6 @@ function Contact() {
         email: "",
         mensaje: "",
       });
-
     } catch (error) {
       console.log(error);
       alert("Error al enviar");
