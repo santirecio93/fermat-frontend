@@ -52,9 +52,13 @@ function Navbar() {
           {lang === "es" ? "Quiénes somos" : "About"}
         </Link>
 
-        {/* CONTACTO */}
         <Link to="/contact" style={{ color: "#fff" }}>
           {lang === "es" ? "Contacto" : "Contact"}
+        </Link>
+
+        {/* 🔥 AGREGAR ESTO */}
+        <Link to="/signup" style={{ color: "#38bdf8", fontWeight: "bold" }}>
+          {lang === "es" ? "Registrarse" : "Sign Up"}
         </Link>
 
         {/* Idiomas */}

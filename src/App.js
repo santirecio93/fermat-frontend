@@ -5,6 +5,7 @@ import Background from "./components/layout/Background";
 import Home from "./pages/Home";
 import About from "./pages/AboutPage";
 import Contact from "./pages/Contact";
+import Signup from "./pages/Signup";
 
 import { LanguageProvider } from "./context/LanguageContext";
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </Background>
       </Router>
