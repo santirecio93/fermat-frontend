@@ -44,6 +44,67 @@ const translations = {
         text: "Actualización automática: sin armar reportes a mano cada semana.",
       },
     ],
+    drivers: {
+      eyebrow: "Entender tu negocio",
+      title: "Te ayudamos a entender las variables que realmente mueven tu negocio",
+      subtitle:
+        "Toda empresa tiene muchos números, pero solo unos pocos explican los resultados. Nuestro trabajo es encontrarlos, medirlos y mostrarte cómo se relacionan entre sí.",
+      points: [
+        {
+          title: "Identificamos los drivers",
+          text: "Descomponemos tus resultados en las variables que los generan: clientes, ticket, precio, costo, rotación.",
+        },
+        {
+          title: "Conectamos causa y efecto",
+          text: "Vemos cómo impacta cada variable en la rentabilidad, para que sepas dónde actuar primero.",
+        },
+        {
+          title: "Priorizamos lo importante",
+          text: "Separamos las métricas que informan de las que deciden, y el tablero muestra solo estas últimas.",
+        },
+        {
+          title: "Medimos el impacto",
+          text: "Cuando tomás una decisión, seguís su efecto en los números y aprendés qué funciona.",
+        },
+      ],
+      tree: {
+        root: "Rentabilidad",
+        branches: [
+          { name: "Ventas", leaves: ["Clientes", "Frecuencia", "Ticket promedio"] },
+          { name: "Margen", leaves: ["Precio", "Costo", "Descuentos"] },
+          { name: "Capital", leaves: ["Stock", "Días de cobro", "Días de pago"] },
+        ],
+        caption: "Árbol de variables: cada resultado se explica por los factores que lo componen.",
+      },
+    },
+    analytics: {
+      eyebrow: "Analítica avanzada",
+      title: "Más allá del reporte: modelos que anticipan",
+      subtitle:
+        "Aplicamos ciencia de datos sobre el histórico de tu empresa para que no solo veas qué pasó, sino qué conviene hacer y qué puede pasar.",
+      items: [
+        {
+          visual: "clusters",
+          title: "Segmentación de clientes",
+          text: "Agrupamos a tus clientes en clusters según cómo compran: frecuencia, volumen, rubro y rentabilidad. Así podés diseñar una estrategia comercial para cada grupo.",
+          tags: ["Clustering", "Clientes clave", "Riesgo de abandono"],
+        },
+        {
+          visual: "abc",
+          title: "Prioridad de productos según la demanda",
+          text: "Clasificamos tu catálogo según cuánto se vende y cuánto aporta, para que sepas qué productos no pueden faltar y dónde estás inmovilizando capital.",
+          tags: ["Análisis ABC", "Pareto", "Reposición"],
+        },
+        {
+          visual: "forecast",
+          title: "Forecast de ventas y demanda",
+          text: "Proyectamos cómo puede evolucionar tu negocio a partir de tu histórico, incluyendo estacionalidad y tendencia, para planificar compras, stock y objetivos.",
+          tags: ["Proyección", "Estacionalidad", "Escenarios"],
+        },
+      ],
+      legendHistory: "Histórico",
+      legendForecast: "Proyección",
+    },
     services: {
       eyebrow: "Servicios",
       title: "Todo lo que necesitás para gestionar con datos",
@@ -279,6 +340,67 @@ const translations = {
         text: "Automatic refresh: no more building reports by hand every week.",
       },
     ],
+    drivers: {
+      eyebrow: "Understand your business",
+      title: "We help you understand the variables that truly drive your business",
+      subtitle:
+        "Every company has plenty of numbers, but only a few explain the results. Our job is to find them, measure them and show you how they relate to each other.",
+      points: [
+        {
+          title: "We identify the drivers",
+          text: "We break your results down into the variables behind them: customers, ticket, price, cost, turnover.",
+        },
+        {
+          title: "We connect cause and effect",
+          text: "We show how each variable impacts profitability, so you know where to act first.",
+        },
+        {
+          title: "We prioritize what matters",
+          text: "We separate metrics that inform from metrics that decide, and the dashboard shows only the latter.",
+        },
+        {
+          title: "We measure the impact",
+          text: "When you make a decision, you track its effect on the numbers and learn what works.",
+        },
+      ],
+      tree: {
+        root: "Profitability",
+        branches: [
+          { name: "Sales", leaves: ["Customers", "Frequency", "Average ticket"] },
+          { name: "Margin", leaves: ["Price", "Cost", "Discounts"] },
+          { name: "Capital", leaves: ["Inventory", "Collection days", "Payment days"] },
+        ],
+        caption: "Driver tree: every result is explained by the factors that make it up.",
+      },
+    },
+    analytics: {
+      eyebrow: "Advanced analytics",
+      title: "Beyond reporting: models that look ahead",
+      subtitle:
+        "We apply data science to your company's history so you see not only what happened, but what to do and what may happen next.",
+      items: [
+        {
+          visual: "clusters",
+          title: "Customer segmentation",
+          text: "We group your customers into clusters based on how they buy: frequency, volume, segment and profitability, so you can design a commercial strategy for each group.",
+          tags: ["Clustering", "Key accounts", "Churn risk"],
+        },
+        {
+          visual: "abc",
+          title: "Product priority by demand",
+          text: "We rank your catalog by how much it sells and how much it contributes, so you know which products must never run out and where capital is tied up.",
+          tags: ["ABC analysis", "Pareto", "Replenishment"],
+        },
+        {
+          visual: "forecast",
+          title: "Sales and demand forecasting",
+          text: "We project how your business may evolve based on your history, including seasonality and trend, to plan purchasing, inventory and targets.",
+          tags: ["Projection", "Seasonality", "Scenarios"],
+        },
+      ],
+      legendHistory: "History",
+      legendForecast: "Forecast",
+    },
     services: {
       eyebrow: "Services",
       title: "Everything you need to manage with data",

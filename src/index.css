@@ -1131,3 +1131,179 @@ textarea {
   color: var(--brand-600);
   margin-bottom: 6px;
 }
+
+/* ---------- Variables del negocio ---------- */
+.drivers__points {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.drivers__points li {
+  display: flex;
+  gap: 14px;
+}
+
+.drivers__points strong {
+  display: block;
+}
+
+.drivers__points span {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.drivers__num {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--brand);
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.85rem !important;
+}
+
+.tree {
+  margin: 0;
+  padding: 32px 24px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.tree__root {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 12px;
+  background: var(--brand);
+  color: #fff;
+  font-weight: 800;
+  position: relative;
+}
+
+/* Conector vertical desde la raíz */
+.tree__root::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  height: 20px;
+  border-left: 2px solid #b9c8de;
+}
+
+.tree__branches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 40px;
+  position: relative;
+}
+
+/* Conector horizontal entre ramas */
+.tree__branches::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 16.66%;
+  right: 16.66%;
+  border-top: 2px solid #b9c8de;
+}
+
+.tree__branch {
+  position: relative;
+}
+
+.tree__branch::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -20px;
+  height: 20px;
+  border-left: 2px solid #b9c8de;
+}
+
+.tree__node {
+  padding: 10px 8px;
+  border-radius: 10px;
+  background: #fff;
+  border: 2px solid var(--brand-600);
+  color: var(--brand);
+  font-weight: 700;
+}
+
+.tree__branch ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tree__branch li {
+  padding: 8px 6px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.tree figcaption {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+@media (max-width: 420px) {
+  .tree {
+    padding: 24px 12px 20px;
+  }
+
+  .tree__branch li {
+    font-size: 0.75rem;
+  }
+}
+
+/* ---------- Analítica avanzada ---------- */
+.analytics__card {
+  display: flex;
+  flex-direction: column;
+}
+
+.analytics__visual {
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+}
+
+.analytics__visual svg {
+  display: block;
+}
+
+.analytics__tags {
+  list-style: none;
+  padding: 0;
+  margin: auto 0 0;
+  padding-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.analytics__tags li {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--brand);
+}

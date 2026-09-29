@@ -3,6 +3,8 @@ import { useLanguage } from "../context/LanguageContext";
 import DashboardMock from "../components/sections/DashboardMock";
 import CtaBand from "../components/sections/CtaBand";
 import AiReporting from "../components/sections/AiReporting";
+import BusinessDrivers from "../components/sections/BusinessDrivers";
+import AdvancedAnalytics from "../components/sections/AdvancedAnalytics";
 import Icon from "../components/ui/Icon";
 
 const highlightIcons = ["layers", "target", "refresh"];
@@ -60,6 +62,10 @@ function Home() {
           ))}
         </div>
       </section>
+
+      <BusinessDrivers />
+
+      <AdvancedAnalytics />
 
       {/* Servicios */}
       <section className="section">
