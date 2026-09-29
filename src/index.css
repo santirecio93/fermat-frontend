@@ -217,6 +217,7 @@ textarea {
   font-weight: 500;
   font-size: 0.95rem;
   color: var(--muted);
+  white-space: nowrap;
   transition: color 0.2s, background 0.2s;
 }
 
@@ -277,7 +278,7 @@ textarea {
   display: none;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 1020px) {
   .nav__links,
   .nav__actions .btn,
   .nav__actions .nav__link {
