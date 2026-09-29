@@ -1,73 +1,94 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
-import logo from "../../assets/fondo.jpg";
+import Icon from "../ui/Icon";
+import logo from "../../assets/logo.jpg";
 
-function Navbar() {
-  const { changeLanguage, lang, t } = useLanguage();
+function LanguageSwitch() {
+  const { lang, changeLanguage } = useLanguage();
 
   return (
-    <nav
-      style={{
-        height: "70px",
-        padding: "0 30px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        background: "rgba(0,0,0,0.9)",
-      }}
-    >
-      {/* Logo */}
-      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-        <img
-          src={logo}
-          alt="Fermat logo"
-          style={{
-            width: "40px",
-            height: "40px",
-            objectFit: "cover",
-            borderRadius: "8px",
-          }}
-        />
-        <h2
-          style={{
-            color: "#38bdf8",
-            margin: 0,
-            fontFamily: "'Inter', 'Segoe UI', 'Roboto', sans-serif",
-            fontWeight: 600,
-            letterSpacing: "0.5px",
-          }}
+    <div className="lang" role="group" aria-label="Idioma / Language">
+      {["es", "en"].map((code) => (
+        <button
+          key={code}
+          type="button"
+          aria-pressed={lang === code}
+          onClick={() => changeLanguage(code)}
         >
+          {code.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function Navbar() {
+  const { t } = useLanguage();
+  const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  // Cerrar el menú mobile al cambiar de página
+  useEffect(() => setOpen(false), [pathname]);
+
+  const links = [
+    { to: "/", label: t("nav.home"), end: true },
+    { to: "/about", label: t("nav.about") },
+    { to: "/contact", label: t("nav.contact") },
+  ];
+
+  const navLinkClass = ({ isActive }) => `nav__link${isActive ? " active" : ""}`;
+
+  return (
+    <header className="nav">
+      <div className="container nav__inner">
+        <Link to="/" className="nav__brand">
+          <img src={logo} alt="" />
           Fermat Analytics
-        </h2>
-      </div>
-
-      {/* Navegación */}
-      <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-        
-        <Link to="/" style={{ color: "#fff" }}>
-          {t("home")}
         </Link>
 
-        <Link to="/about" style={{ color: "#fff" }}>
-          {lang === "es" ? "Quiénes somos" : "About"}
-        </Link>
+        <nav className="nav__links" aria-label="Principal">
+          {links.map((l) => (
+            <NavLink key={l.to} to={l.to} end={l.end} className={navLinkClass}>
+              {l.label}
+            </NavLink>
+          ))}
+        </nav>
 
-        <Link to="/contact" style={{ color: "#fff" }}>
-          {lang === "es" ? "Contacto" : "Contact"}
-        </Link>
-
-        {/* 🔥 AGREGAR ESTO */}
-        <Link to="/signup" style={{ color: "#38bdf8", fontWeight: "bold" }}>
-          {lang === "es" ? "Registrarse" : "Sign Up"}
-        </Link>
-
-        {/* Idiomas */}
-        <div style={{ display: "flex", gap: "5px", marginLeft: "20px" }}>
-          <button onClick={() => changeLanguage("es")}>ES</button>
-          <button onClick={() => changeLanguage("en")}>EN</button>
+        <div className="nav__actions">
+          <LanguageSwitch />
+          <NavLink to="/signup" className={navLinkClass}>
+            {t("nav.signup")}
+          </NavLink>
+          <Link to="/contact" className="btn btn--primary btn--sm">
+            {t("nav.cta")}
+          </Link>
+          <button
+            type="button"
+            className="nav__toggle"
+            aria-label={t("nav.menu")}
+            aria-expanded={open}
+            onClick={() => setOpen((o) => !o)}
+          >
+            <Icon name={open ? "close" : "menu"} />
+          </button>
         </div>
       </div>
-    </nav>
+
+      <nav className={`nav__mobile${open ? " open" : ""}`} aria-label="Mobile">
+        {links.map((l) => (
+          <NavLink key={l.to} to={l.to} end={l.end} className={navLinkClass}>
+            {l.label}
+          </NavLink>
+        ))}
+        <NavLink to="/signup" className={navLinkClass}>
+          {t("nav.signup")}
+        </NavLink>
+        <Link to="/contact" className="btn btn--primary">
+          {t("nav.cta")}
+        </Link>
+      </nav>
+    </header>
   );
 }
 

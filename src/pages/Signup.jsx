@@ -1,99 +1,84 @@
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
+import useFormSubmit from "../hooks/useFormSubmit";
 
 function Signup() {
-  const [form, setForm] = useState({
+  const { t } = useLanguage();
+  const { values, status, handleChange, submit } = useFormSubmit("/api/signup", {
     nombre: "",
     email: "",
     password: "",
   });
 
-  const API_URL = process.env.REACT_APP_API_URL;
+  const handleSubmit = (e) =>
+    submit(e, { successMessage: t("signup.success"), errorMessage: t("signup.error") });
 
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch(`${API_URL}/api/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
-
-      const data = await response.json();
-      console.log(data);
-
-      alert("Usuario creado correctamente");
-
-      setForm({
-        nombre: "",
-        email: "",
-        password: "",
-      });
-
-    } catch (error) {
-      console.error(error);
-      alert("Error al registrarse");
-    }
-  };
+  const loading = status.state === "loading";
 
   return (
-    <div style={{
-      minHeight: "80vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      color: "white",
-    }}>
-      <form onSubmit={handleSubmit} style={{
-        background: "rgba(0,0,0,0.7)",
-        padding: "30px",
-        borderRadius: "10px",
-        width: "350px",
-        display: "flex",
-        flexDirection: "column",
-        gap: "15px",
-      }}>
-        <h2>Crear cuenta</h2>
+    <section className="section section--soft">
+      <div className="container">
+        <div className="form-card form-card--narrow">
+          <h2>{t("signup.title")}</h2>
+          <p>{t("signup.text")}</p>
 
-        <input
-          type="text"
-          name="nombre"
-          placeholder="Nombre"
-          value={form.nombre}
-          onChange={handleChange}
-          required
-        />
+          <form className="form" onSubmit={handleSubmit}>
+            <div className="field">
+              <label htmlFor="nombre">{t("signup.name")}</label>
+              <input
+                id="nombre"
+                type="text"
+                name="nombre"
+                autoComplete="name"
+                value={values.nombre}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="email">{t("signup.email")}</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                autoComplete="email"
+                value={values.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="field">
+              <label htmlFor="password">{t("signup.password")}</label>
+              <input
+                id="password"
+                type="password"
+                name="password"
+                autoComplete="new-password"
+                minLength={8}
+                value={values.password}
+                onChange={handleChange}
+                required
+              />
+              <small>{t("signup.passwordHint")}</small>
+            </div>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
+            {status.message && (
+              <div className={`alert alert--${status.state}`} role="status">
+                {status.message}
+              </div>
+            )}
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Contraseña"
-          value={form.password}
-          onChange={handleChange}
-          required
-        />
+            <button type="submit" className="btn btn--primary btn--block" disabled={loading}>
+              {loading ? t("signup.sending") : t("signup.submit")}
+            </button>
 
-        <button type="submit">Registrarse</button>
-      </form>
-    </div>
+            <p className="form-note">
+              {t("signup.contactPrompt")} <Link to="/contact">{t("signup.contactLink")}</Link>
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 }
 

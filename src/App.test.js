@@ -1,8 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+import { LanguageProvider } from "./context/LanguageContext";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("renderiza el hero de la home", () => {
+  render(
+    <LanguageProvider>
+      <App />
+    </LanguageProvider>
+  );
+  expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/decisiones/i);
 });

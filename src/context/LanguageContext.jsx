@@ -3,20 +3,26 @@ import translations from "../i18n/translations";
 
 const LanguageContext = createContext();
 
+const getInitialLang = () => {
+  const saved = localStorage.getItem("lang");
+  return saved === "en" || saved === "es" ? saved : "es";
+};
+
 export function LanguageProvider({ children }) {
-  const [lang, setLang] = useState("es"); // idioma por defecto
+  const [lang, setLang] = useState(getInitialLang);
 
   useEffect(() => {
-    const saved = localStorage.getItem("lang");
-    if (saved) setLang(saved);
-  }, []);
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   const changeLanguage = (newLang) => {
     setLang(newLang);
     localStorage.setItem("lang", newLang);
   };
 
-  const t = (key) => translations[lang][key];
+  // t("hero.title") → busca la clave anidada; puede devolver strings, arrays u objetos
+  const t = (key) =>
+    key.split(".").reduce((obj, part) => (obj == null ? obj : obj[part]), translations[lang]) ?? key;
 
   return (
     <LanguageContext.Provider value={{ lang, t, changeLanguage }}>

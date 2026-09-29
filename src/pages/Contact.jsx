@@ -1,102 +1,104 @@
-import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
+import useFormSubmit from "../hooks/useFormSubmit";
+import Icon from "../components/ui/Icon";
 
 function Contact() {
-  const [form, setForm] = useState({
+  const { t } = useLanguage();
+  const { values, status, handleChange, submit } = useFormSubmit("/api/contact", {
     nombre: "",
     email: "",
     mensaje: "",
   });
 
-  const API_URL = process.env.REACT_APP_API_URL;
+  const handleSubmit = (e) =>
+    submit(e, { successMessage: t("contact.success"), errorMessage: t("contact.error") });
 
-  const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch(`${API_URL}/api/contact`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
-
-      const data = await response.json();
-      console.log(data);
-
-      alert("Mensaje enviado correctamente");
-
-      setForm({
-        nombre: "",
-        email: "",
-        mensaje: "",
-      });
-    } catch (error) {
-      console.log(error);
-      alert("Error al enviar");
-    }
-  };
+  const loading = status.state === "loading";
 
   return (
-    <div
-      style={{
-        minHeight: "80vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        color: "white",
-      }}
-    >
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          background: "rgba(0,0,0,0.7)",
-          padding: "30px",
-          borderRadius: "10px",
-          width: "350px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "15px",
-        }}
-      >
-        <h2>Contacto</h2>
+    <>
+      <section className="page-hero">
+        <div className="container">
+          <span className="eyebrow">{t("contact.eyebrow")}</span>
+          <h1>{t("contact.title")}</h1>
+          <p>{t("contact.subtitle")}</p>
+        </div>
+      </section>
 
-        <input
-          type="text"
-          name="nombre"
-          placeholder="Nombre"
-          value={form.nombre}
-          onChange={handleChange}
-          required
-        />
+      <section className="section">
+        <div className="container form-layout">
+          <div>
+            <h2 className="section__title">{t("contact.expectTitle")}</h2>
+            <ul className="checklist">
+              {t("contact.expect").map((item) => (
+                <li key={item.title}>
+                  <span className="icon-box">
+                    <Icon name="check" strokeWidth={2.5} />
+                  </span>
+                  <div>
+                    <strong>{item.title}</strong>
+                    <span>{item.text}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
+          <div className="form-card">
+            <h2>{t("contact.formTitle")}</h2>
+            <p>{t("contact.formText")}</p>
 
-        <textarea
-          name="mensaje"
-          placeholder="Mensaje"
-          value={form.mensaje}
-          onChange={handleChange}
-          required
-        />
+            <form className="form" onSubmit={handleSubmit}>
+              <div className="field">
+                <label htmlFor="nombre">{t("contact.name")}</label>
+                <input
+                  id="nombre"
+                  type="text"
+                  name="nombre"
+                  autoComplete="name"
+                  value={values.nombre}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="field">
+                <label htmlFor="email">{t("contact.email")}</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="field">
+                <label htmlFor="mensaje">{t("contact.message")}</label>
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  placeholder={t("contact.messagePlaceholder")}
+                  value={values.mensaje}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-        <button type="submit">Enviar</button>
-      </form>
-    </div>
+              {status.message && (
+                <div className={`alert alert--${status.state}`} role="status">
+                  {status.message}
+                </div>
+              )}
+
+              <button type="submit" className="btn btn--primary btn--block" disabled={loading}>
+                {loading ? t("contact.sending") : t("contact.submit")}
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
