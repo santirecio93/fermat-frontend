@@ -1376,3 +1376,60 @@ textarea {
 .wa-float:hover {
   transform: scale(1.07);
 }
+
+/* ---------- Foco pymes ---------- */
+.smb {
+  padding-bottom: 24px;
+}
+
+.smb__box {
+  border-radius: 28px;
+  padding: 48px;
+  color: #fff;
+  background:
+    radial-gradient(600px 300px at 100% 0%, rgba(56, 189, 248, 0.22), transparent 60%),
+    linear-gradient(135deg, var(--brand), var(--navy-900));
+}
+
+.smb__head {
+  max-width: 760px;
+  margin-bottom: 36px;
+}
+
+.smb .eyebrow {
+  color: var(--accent);
+}
+
+.smb .section__subtitle {
+  color: #c6d6ee;
+}
+
+.smb__item {
+  padding: 24px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.smb__item .icon-box {
+  background: rgba(56, 189, 248, 0.16);
+  color: var(--accent);
+}
+
+.smb__item h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 16px;
+}
+
+.smb__item p {
+  margin-top: 6px;
+  font-size: 0.93rem;
+  color: #c6d6ee;
+}
+
+@media (max-width: 640px) {
+  .smb__box {
+    padding: 32px 22px;
+  }
+}

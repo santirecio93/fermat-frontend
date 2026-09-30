@@ -9,11 +9,11 @@ const translations = {
       menu: "Abrir menú",
     },
     hero: {
-      badge: "Business Intelligence con Power BI",
+      badge: "Business Intelligence para pymes",
       titleStart: "Convertimos los datos de tu ERP en",
       titleHighlight: "decisiones",
       subtitle:
-        "Integramos la información de tu empresa y la transformamos en KPIs claros, accionables y actualizados, con reportes generados por IA para el equipo directivo.",
+        "Llevamos a las pymes las mismas herramientas de análisis que usan las grandes empresas: integramos tu información y la convertimos en KPIs claros, actualizados y con reportes generados por IA.",
       ctaPrimary: "Agendar un diagnóstico",
       ctaSecondary: "Cómo trabajamos",
       points: ["Integración con tu ERP", "Dashboards en Power BI", "Reportes generados con IA"],
@@ -44,6 +44,34 @@ const translations = {
         text: "Actualización automática: sin armar reportes a mano cada semana.",
       },
     ],
+    smb: {
+      eyebrow: "Pensado para pymes",
+      title: "Análisis de datos de gran empresa, a la medida de una pyme",
+      subtitle:
+        "Trabajamos con pequeñas y medianas empresas que tienen información valiosa en su ERP y sus planillas, pero no cuentan con un área de datos propia. Nosotros somos esa área.",
+      items: [
+        {
+          icon: "users",
+          title: "Sin armar un equipo de datos",
+          text: "No necesitás contratar analistas ni ingenieros: nos sumamos como tu área de BI externa.",
+        },
+        {
+          icon: "wallet",
+          title: "Costos accesibles y previsibles",
+          text: "Proyectos con alcance cerrado y abonos mensuales pensados para el presupuesto de una pyme.",
+        },
+        {
+          icon: "database",
+          title: "Con lo que ya tenés",
+          text: "Trabajamos sobre tu ERP, tus planillas de Excel y tus sistemas actuales, sin cambiar de software.",
+        },
+        {
+          icon: "refresh",
+          title: "Resultados en semanas",
+          text: "Empezamos por los indicadores que más impactan y en pocas semanas ya tenés tu primer tablero.",
+        },
+      ],
+    },
     drivers: {
       eyebrow: "Entender tu negocio",
       title: "Te ayudamos a entender las variables que realmente mueven tu negocio",
@@ -225,7 +253,7 @@ const translations = {
       eyebrow: "Quiénes somos",
       title: "Transformamos datos en información estratégica",
       subtitle:
-        "Somos un equipo especializado en Business Intelligence que ayuda a las empresas a tomar mejores decisiones a partir de sus propios datos.",
+        "Somos un equipo especializado en Business Intelligence que ayuda a pequeñas y medianas empresas a tomar mejores decisiones a partir de sus propios datos.",
       storyTitle: "Nuestra mirada",
       story: [
         "Convertimos tus datos en información estratégica para mejorar la toma de decisiones. Integramos los datos de tu ERP y, mediante herramientas como Power BI, los transformamos en KPIs claros, accionables y en tiempo real. Además, integramos el BI con modelos de lenguaje de IA para generar reportes automáticos.",
@@ -294,7 +322,7 @@ const translations = {
       contactLink: "Escribinos",
     },
     footer: {
-      tagline: "Business Intelligence, Power BI y reporting con IA para empresas que quieren decidir con datos.",
+      tagline: "Business Intelligence, Power BI y reporting con IA para pymes que quieren decidir con datos.",
       rights: "Todos los derechos reservados.",
     },
   },
@@ -309,11 +337,11 @@ const translations = {
       menu: "Open menu",
     },
     hero: {
-      badge: "Business Intelligence with Power BI",
+      badge: "Business Intelligence for SMBs",
       titleStart: "We turn your ERP data into",
       titleHighlight: "decisions",
       subtitle:
-        "We integrate your company's information and transform it into clear, actionable, up-to-date KPIs, with AI-generated reports for the leadership team.",
+        "We bring small and mid-sized businesses the same analytics tools large companies use: we integrate your information and turn it into clear, up-to-date KPIs with AI-generated reports.",
       ctaPrimary: "Book a diagnosis",
       ctaSecondary: "How we work",
       points: ["ERP integration", "Power BI dashboards", "AI-generated reports"],
@@ -344,6 +372,34 @@ const translations = {
         text: "Automatic refresh: no more building reports by hand every week.",
       },
     ],
+    smb: {
+      eyebrow: "Built for SMBs",
+      title: "Enterprise-grade analytics, sized for a small or mid-sized business",
+      subtitle:
+        "We work with small and mid-sized companies that have valuable information in their ERP and spreadsheets but no in-house data team. We become that team.",
+      items: [
+        {
+          icon: "users",
+          title: "No data team needed",
+          text: "No need to hire analysts or engineers: we join as your external BI department.",
+        },
+        {
+          icon: "wallet",
+          title: "Affordable, predictable costs",
+          text: "Fixed-scope projects and monthly plans designed for an SMB budget.",
+        },
+        {
+          icon: "database",
+          title: "With what you already have",
+          text: "We work on top of your ERP, your Excel spreadsheets and your current systems, with no software change.",
+        },
+        {
+          icon: "refresh",
+          title: "Results in weeks",
+          text: "We start with the metrics that matter most, and within a few weeks you have your first dashboard.",
+        },
+      ],
+    },
     drivers: {
       eyebrow: "Understand your business",
       title: "We help you understand the variables that truly drive your business",
@@ -525,7 +581,7 @@ const translations = {
       eyebrow: "About us",
       title: "We turn data into strategic insight",
       subtitle:
-        "We are a team specialized in Business Intelligence, helping companies make better decisions from their own data.",
+        "We are a team specialized in Business Intelligence, helping small and mid-sized businesses make better decisions from their own data.",
       storyTitle: "Our approach",
       story: [
         "We transform your data into strategic insights to enhance decision-making. By integrating data from your ERP and leveraging tools like Power BI, we convert it into clear, actionable, real-time KPIs. We also integrate BI with AI language models to produce AI-generated reports.",
@@ -594,7 +650,7 @@ const translations = {
       contactLink: "Get in touch",
     },
     footer: {
-      tagline: "Business Intelligence, Power BI and AI reporting for companies that want to decide with data.",
+      tagline: "Business Intelligence, Power BI and AI reporting for SMBs that want to decide with data.",
       rights: "All rights reserved.",
     },
   },

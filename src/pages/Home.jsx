@@ -4,6 +4,7 @@ import DashboardMock from "../components/sections/DashboardMock";
 import CtaBand from "../components/sections/CtaBand";
 import AiReporting from "../components/sections/AiReporting";
 import BusinessDrivers from "../components/sections/BusinessDrivers";
+import SmbFocus from "../components/sections/SmbFocus";
 import AdvancedAnalytics from "../components/sections/AdvancedAnalytics";
 import Icon from "../components/ui/Icon";
 
@@ -62,6 +63,8 @@ function Home() {
           ))}
         </div>
       </section>
+
+      <SmbFocus />
 
       <BusinessDrivers />
 
