@@ -269,7 +269,9 @@ const translations = {
       success: "¡Gracias! Recibimos tu mensaje y te vamos a contactar pronto.",
       error: "No pudimos enviar el mensaje. Probá de nuevo en unos minutos.",
       directTitle: "¿Preferís escribirnos directo?",
-      directText: "Mandanos un email y te respondemos a la brevedad.",
+      directText: "Mandanos un email o un WhatsApp y te respondemos a la brevedad.",
+      whatsappMessage: "Hola Fermat Analytics, quiero hacer una consulta.",
+      whatsappLabel: "Escribinos por WhatsApp",
       expectTitle: "Qué podés esperar",
       expect: [
         { title: "Respuesta rápida", text: "Te contactamos para entender tu situación." },
@@ -566,8 +568,10 @@ const translations = {
       sending: "Sending…",
       success: "Thanks! We received your message and will contact you soon.",
       error: "We couldn't send your message. Please try again in a few minutes.",
-      directTitle: "Prefer to email us directly?",
-      directText: "Send us an email and we'll get back to you shortly.",
+      directTitle: "Prefer to reach us directly?",
+      directText: "Send us an email or a WhatsApp message and we'll get back to you shortly.",
+      whatsappMessage: "Hi Fermat Analytics, I'd like to ask a question.",
+      whatsappLabel: "Message us on WhatsApp",
       expectTitle: "What to expect",
       expect: [
         { title: "Quick reply", text: "We reach out to understand your situation." },

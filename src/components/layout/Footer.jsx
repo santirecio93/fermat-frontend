@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
-import { CONTACT_EMAIL } from "../../config/contact";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, whatsappLink } from "../../config/contact";
 
 function Footer() {
   const { t } = useLanguage();
@@ -14,6 +14,14 @@ function Footer() {
             <p>{t("footer.tagline")}</p>
             <a className="footer__email" href={`mailto:${CONTACT_EMAIL}`}>
               {CONTACT_EMAIL}
+            </a>
+            <a
+              className="footer__email"
+              href={whatsappLink(t("contact.whatsappMessage"))}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp {WHATSAPP_DISPLAY}
             </a>
           </div>
           <nav className="footer__links" aria-label="Footer">

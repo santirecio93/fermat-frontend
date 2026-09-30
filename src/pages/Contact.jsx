@@ -1,7 +1,7 @@
 import { useLanguage } from "../context/LanguageContext";
 import useFormSubmit from "../hooks/useFormSubmit";
 import Icon from "../components/ui/Icon";
-import { CONTACT_EMAIL } from "../config/contact";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, whatsappLink } from "../config/contact";
 
 function Contact() {
   const { t } = useLanguage();
@@ -52,6 +52,13 @@ function Contact() {
                 <strong>{t("contact.directTitle")}</strong>
                 <span>{t("contact.directText")}</span>
                 <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+                <a
+                  href={whatsappLink(t("contact.whatsappMessage"))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp: {WHATSAPP_DISPLAY}
+                </a>
               </div>
             </div>
           </div>
