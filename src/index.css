@@ -1307,3 +1307,47 @@ textarea {
   background: var(--accent-soft);
   color: var(--brand);
 }
+
+/* ---------- Email de contacto ---------- */
+.direct {
+  display: flex;
+  gap: 14px;
+  margin-top: 36px;
+  padding: 22px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+}
+
+.direct strong {
+  display: block;
+}
+
+.direct span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.direct a {
+  display: inline-block;
+  margin-top: 6px;
+  font-weight: 700;
+  color: var(--brand);
+  word-break: break-all;
+}
+
+.direct a:hover {
+  text-decoration: underline;
+}
+
+.footer__email {
+  display: inline-block;
+  margin-top: 12px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.footer__email:hover {
+  color: var(--accent);
+}

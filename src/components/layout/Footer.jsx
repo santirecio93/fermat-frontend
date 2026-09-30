@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
+import { CONTACT_EMAIL } from "../../config/contact";
 
 function Footer() {
   const { t } = useLanguage();
@@ -11,6 +12,9 @@ function Footer() {
           <div className="footer__brand">
             <strong>Fermat Analytics</strong>
             <p>{t("footer.tagline")}</p>
+            <a className="footer__email" href={`mailto:${CONTACT_EMAIL}`}>
+              {CONTACT_EMAIL}
+            </a>
           </div>
           <nav className="footer__links" aria-label="Footer">
             <Link to="/">{t("nav.home")}</Link>

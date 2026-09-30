@@ -268,6 +268,8 @@ const translations = {
       sending: "Enviando…",
       success: "¡Gracias! Recibimos tu mensaje y te vamos a contactar pronto.",
       error: "No pudimos enviar el mensaje. Probá de nuevo en unos minutos.",
+      directTitle: "¿Preferís escribirnos directo?",
+      directText: "Mandanos un email y te respondemos a la brevedad.",
       expectTitle: "Qué podés esperar",
       expect: [
         { title: "Respuesta rápida", text: "Te contactamos para entender tu situación." },
@@ -564,6 +566,8 @@ const translations = {
       sending: "Sending…",
       success: "Thanks! We received your message and will contact you soon.",
       error: "We couldn't send your message. Please try again in a few minutes.",
+      directTitle: "Prefer to email us directly?",
+      directText: "Send us an email and we'll get back to you shortly.",
       expectTitle: "What to expect",
       expect: [
         { title: "Quick reply", text: "We reach out to understand your situation." },

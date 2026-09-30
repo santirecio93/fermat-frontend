@@ -1,6 +1,7 @@
 import { useLanguage } from "../context/LanguageContext";
 import useFormSubmit from "../hooks/useFormSubmit";
 import Icon from "../components/ui/Icon";
+import { CONTACT_EMAIL } from "../config/contact";
 
 function Contact() {
   const { t } = useLanguage();
@@ -42,6 +43,17 @@ function Contact() {
                 </li>
               ))}
             </ul>
+
+            <div className="direct">
+              <span className="icon-box">
+                <Icon name="mail" />
+              </span>
+              <div>
+                <strong>{t("contact.directTitle")}</strong>
+                <span>{t("contact.directText")}</span>
+                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              </div>
+            </div>
           </div>
 
           <div className="form-card">
